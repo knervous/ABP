@@ -6,17 +6,10 @@
 package views;
 
 import models.*;
-import controllers.*;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 public class AuBonPainPanel extends JPanel {
 
@@ -28,11 +21,10 @@ public class AuBonPainPanel extends JPanel {
     private Rectangle fruit;
     private Rectangle soup;
     private Rectangle cooler;
-    private JButton exitOutside;
-    private JButton exitCompSci;
+    private Rectangle exitOutside;
+    private Rectangle exitCompSci;
     private CharacterMovement characterMovement;
     private Student student;
-    private int frame = 0;
 
     private JLabel temp = new JLabel();
 
