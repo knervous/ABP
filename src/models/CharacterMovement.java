@@ -50,7 +50,7 @@ public class CharacterMovement implements KeyListener {
             }
             student.x = student.x + 5;
         }
-        if (ke.getKeyCode() == KeyEvent.VK_LEFT || ke.getKeyCode() == KeyEvent.VK_A) {
+        else if (ke.getKeyCode() == KeyEvent.VK_LEFT || ke.getKeyCode() == KeyEvent.VK_A) {
 
             if (frame < 5) {
                 animation = student.getAnimation()[2];
@@ -63,7 +63,7 @@ public class CharacterMovement implements KeyListener {
             }
             student.x = student.x - 5;
         }
-        if (ke.getKeyCode() == KeyEvent.VK_UP || ke.getKeyCode() == KeyEvent.VK_W) {
+        else if (ke.getKeyCode() == KeyEvent.VK_UP || ke.getKeyCode() == KeyEvent.VK_W) {
             if (frame < 5) {
                 animation = student.getAnimation()[4];
                 frame++;
@@ -75,7 +75,7 @@ public class CharacterMovement implements KeyListener {
             }
             student.y = student.y - 5;
         }
-        if (ke.getKeyCode() == KeyEvent.VK_DOWN || ke.getKeyCode() == KeyEvent.VK_S) {
+        else if (ke.getKeyCode() == KeyEvent.VK_DOWN || ke.getKeyCode() == KeyEvent.VK_S) {
             if (frame < 5) {
                 animation = student.getAnimation()[6];
                 frame++;
@@ -100,7 +100,9 @@ public class CharacterMovement implements KeyListener {
         return animation;
     }
     
-    public void setStations(Rectangle counter, Rectangle coffee, Rectangle sign, Rectangle trash, Rectangle bakery, Rectangle fruit, Rectangle soup, Rectangle cooler)
+    public void setStations(Rectangle counter, Rectangle coffee, Rectangle sign,
+            Rectangle trash, Rectangle bakery, Rectangle fruit, Rectangle soup, 
+            Rectangle cooler)
     {
         stations.add(counter);
         stations.add(coffee);
