@@ -5,7 +5,7 @@
  */
 package views;
 import javax.swing.*;
-
+import java.awt.event.*;
 /**
  *
  * @author Paul
@@ -19,6 +19,7 @@ public class TestFrame extends JFrame {
         setVisible(true);
         validate();
         add(new AuBonPainPanel());
+        
     }
     
 }
