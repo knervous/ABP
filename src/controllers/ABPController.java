@@ -5,6 +5,12 @@
  */
 package controllers;
 
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import javax.sound.midi.MidiSystem;
+import javax.sound.midi.Sequencer;
 import views.*;
 import models.*;
 /**
@@ -14,15 +20,24 @@ import models.*;
 public class ABPController {
     
     
-    public ABPController()
+    public ABPController() throws Exception
     {
         TestFrame testFrame = new TestFrame();
         Student student = new Student();
         CharacterMovement charMovement = new CharacterMovement(student);
         AuBonPainPanel abp = new AuBonPainPanel(student, charMovement);
         charMovement.setStations(abp.getCounter(), abp.getCoffee(), abp.getSign(), abp.getTrash(), abp.getBakery(), abp.getFruit(), abp.getSoup(), abp.getCooler());
-        
         testFrame.add(abp);
+        
+//        InputStream is;
+//        Sequencer sequence;
+//        sequence = MidiSystem.getSequencer();
+//        sequence.open();
+//        is = new BufferedInputStream(new FileInputStream(new File("beatit.mid")));
+//        sequence.setSequence(is);
+//        sequence.setLoopCount(Sequencer.LOOP_CONTINUOUSLY);
+//        sequence.start();
+//        is.close();
         while(true)
         {
             abp.repaint();

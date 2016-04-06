@@ -82,7 +82,7 @@ public class AuBonPainPanel extends JPanel {
     private void placeStations() {
         student.setBounds(700, 400, student.width, student.height);
         counter.setBounds(639, 163, 40, 150);
-        coffee.setBounds(221, 513, 289, 40);
+        coffee.setBounds(201, 513, 309, 40);
         sign.setBounds(86, 355, 50, 45);
         trash.setBounds(59, 492, 114, 62);
         bakery.setBounds(5, 132, 50, 150);
