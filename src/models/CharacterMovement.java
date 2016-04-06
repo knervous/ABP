@@ -29,7 +29,6 @@ public class CharacterMovement implements KeyListener {
 
     }
 
-
     @Override
     public void keyTyped(KeyEvent ke) {
 
@@ -50,8 +49,7 @@ public class CharacterMovement implements KeyListener {
                 frame = 0;
             }
             student.x = student.x + 5;
-        }
-        else if (ke.getKeyCode() == KeyEvent.VK_LEFT || ke.getKeyCode() == KeyEvent.VK_A) {
+        } else if (ke.getKeyCode() == KeyEvent.VK_LEFT || ke.getKeyCode() == KeyEvent.VK_A) {
 
             if (frame < 5) {
                 animation = student.getAnimation()[2];
@@ -63,8 +61,7 @@ public class CharacterMovement implements KeyListener {
                 frame = 0;
             }
             student.x = student.x - 5;
-        }
-        else if (ke.getKeyCode() == KeyEvent.VK_UP || ke.getKeyCode() == KeyEvent.VK_W) {
+        } else if (ke.getKeyCode() == KeyEvent.VK_UP || ke.getKeyCode() == KeyEvent.VK_W) {
             if (frame < 5) {
                 animation = student.getAnimation()[4];
                 frame++;
@@ -75,8 +72,7 @@ public class CharacterMovement implements KeyListener {
                 frame = 0;
             }
             student.y = student.y - 5;
-        }
-        else if (ke.getKeyCode() == KeyEvent.VK_DOWN || ke.getKeyCode() == KeyEvent.VK_S) {
+        } else if (ke.getKeyCode() == KeyEvent.VK_DOWN || ke.getKeyCode() == KeyEvent.VK_S) {
             if (frame < 5) {
                 animation = student.getAnimation()[6];
                 frame++;
@@ -88,12 +84,14 @@ public class CharacterMovement implements KeyListener {
             }
             student.y = student.y + 5;
         }
-        
+
         intersects();
-        
-        if(ke.getKeyCode() == KeyEvent.VK_SPACE && stationFound.equalsIgnoreCase("coffee") && Math.abs(student.getCenterX() - stations.get(1).getCenterX()) < 200 && Math.abs(student.getCenterY() - stations.get(1).getCenterY()) < 75)
-        {
-            System.out.println("coffee initiated");
+
+        if (ke.getKeyCode() == KeyEvent.VK_SPACE) {
+            if (stationFound.equalsIgnoreCase("coffee") && Math.abs(student.getCenterX() - stations.get(1).getCenterX()) < 200 && Math.abs(student.getCenterY() - stations.get(1).getCenterY()) < 75) 
+            {
+                System.out.println("coffee initiated");
+            }
         }
     }
 
@@ -105,11 +103,10 @@ public class CharacterMovement implements KeyListener {
     public String getAnimation() {
         return animation;
     }
-    
+
     public void setStations(Rectangle counter, Rectangle coffee, Rectangle sign,
-            Rectangle trash, Rectangle bakery, Rectangle fruit, Rectangle soup, 
-            Rectangle cooler)
-    {
+            Rectangle trash, Rectangle bakery, Rectangle fruit, Rectangle soup,
+            Rectangle cooler) {
         stations.add(counter);
         stations.add(coffee);
         stations.add(sign);
@@ -119,60 +116,51 @@ public class CharacterMovement implements KeyListener {
         stations.add(soup);
         stations.add(cooler);
     }
-    
-    private void intersects()
-    {
-        if(student.intersects(stations.get(0)))
-        {
+
+    private void intersects() {
+        if (student.intersects(stations.get(0))) {
             student.x = oldX;
             student.y = oldY;
             stationFound = "counter";
             System.out.println("counter found");
         }
-        if(student.intersects(stations.get(1)))
-        {
+        if (student.intersects(stations.get(1))) {
             student.x = oldX;
             student.y = oldY;
             stationFound = "coffee";
             System.out.println("coffee found");
         }
-        if(student.intersects(stations.get(2)))
-        {
+        if (student.intersects(stations.get(2))) {
             student.x = oldX;
             student.y = oldY;
             stationFound = "sign";
             System.out.println("sign found");
         }
-        if(student.intersects(stations.get(3)))
-        {
+        if (student.intersects(stations.get(3))) {
             student.x = oldX;
             student.y = oldY;
             stationFound = "trash";
             System.out.println("trash found");
         }
-        if(student.intersects(stations.get(4)))
-        {
+        if (student.intersects(stations.get(4))) {
             student.x = oldX;
             student.y = oldY;
             stationFound = "bakery";
             System.out.println("bakery found");
         }
-        if(student.intersects(stations.get(5)))
-        {
+        if (student.intersects(stations.get(5))) {
             student.x = oldX;
             student.y = oldY;
             stationFound = "fruit";
             System.out.println("fruit found");
         }
-        if(student.intersects(stations.get(6)))
-        {
+        if (student.intersects(stations.get(6))) {
             student.x = oldX;
             student.y = oldY;
             stationFound = "soup";
             System.out.println("soup found");
         }
-        if(student.intersects(stations.get(7)))
-        {
+        if (student.intersects(stations.get(7))) {
             student.x = oldX;
             student.y = oldY;
             stationFound = "cooler";
