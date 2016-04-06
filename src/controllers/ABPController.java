@@ -23,7 +23,7 @@ public class ABPController {
     public ABPController() throws Exception
     {
         TestFrame testFrame = new TestFrame();
-        Student student = new Student();
+        Customer student = new Customer();
         CharacterMovement charMovement = new CharacterMovement(student);
         AuBonPainPanel abp = new AuBonPainPanel(student, charMovement);
         charMovement.setStations(abp.getCounter(), abp.getCoffee(), abp.getSign(), abp.getTrash(), abp.getBakery(), abp.getFruit(), abp.getSoup(), abp.getCooler());

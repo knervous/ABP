@@ -16,15 +16,16 @@ import java.awt.*;
 
 public class CharacterMovement implements KeyListener {
 
-    private Student student;
+    private Customer student;
     private int frame = 0;
     private String animation = "left1.png";
     private String stationFound = "";
     private ArrayList<Rectangle> stations = new ArrayList<>();
+    private boolean isInteracting = false;
     private int oldX;
     private int oldY;
 
-    public CharacterMovement(Student inf_Student) {
+    public CharacterMovement(Customer inf_Student) {
         student = inf_Student;
 
     }

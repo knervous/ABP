@@ -24,11 +24,11 @@ public class AuBonPainPanel extends JPanel {
     private Rectangle exitOutside;
     private Rectangle exitCompSci;
     private CharacterMovement characterMovement;
-    private Student student;
+    private Customer student;
 
     private JLabel temp = new JLabel();
 
-    public AuBonPainPanel(Student inf_Student, CharacterMovement inf_charMovement) {
+    public AuBonPainPanel(Customer inf_Student, CharacterMovement inf_charMovement) {
         super();
         student = inf_Student;
         characterMovement = inf_charMovement;
