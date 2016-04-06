@@ -19,6 +19,8 @@ public class Student extends Rectangle{
     public Student()
     {
         animation = new String [] {"right1.png" , "right2.png" , "left1.png" , "left2.png" , "up1.png" , "up2.png" , "down1.png" , "down2.png"};
+        height = 75;
+        width = 25;
     }
     
     

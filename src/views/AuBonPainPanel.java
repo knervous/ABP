@@ -18,16 +18,16 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class AuBonPainPanel extends JPanel  {
+public class AuBonPainPanel extends JPanel {
 
-    private JButton counter;
-    private JButton coffee;
-    private JButton sign;
-    private JButton trash;
-    private JButton bakery;
-    private JButton fruit;
-    private JButton soup;
-    private JButton cooler;
+    private Rectangle counter;
+    private Rectangle coffee;
+    private Rectangle sign;
+    private Rectangle trash;
+    private Rectangle bakery;
+    private Rectangle fruit;
+    private Rectangle soup;
+    private Rectangle cooler;
     private JButton exitOutside;
     private JButton exitCompSci;
     private CharacterMovement characterMovement;
@@ -45,7 +45,7 @@ public class AuBonPainPanel extends JPanel  {
         add(temp);
         temp.setBounds(200, 200, 200, 200);
         init();
-        placeButtons();
+        placeStations();
         this.addKeyListener(characterMovement);
 
 //        this.addMouseMotionListener(new MouseAdapter() {
@@ -61,67 +61,75 @@ public class AuBonPainPanel extends JPanel  {
 
     private void init() {
 
-        counter = new JButton();
-        add(counter);
-        counter.setOpaque(false);
-        counter.setContentAreaFilled(false);
-        counter.setBorderPainted(true);
+        counter = new Rectangle();
 
-        coffee = new JButton();
-        add(coffee);
-        coffee.setOpaque(false);
-        coffee.setContentAreaFilled(false);
-        coffee.setBorderPainted(true);
+        coffee = new Rectangle();
 
-        sign = new JButton();
-        add(sign);
-        sign.setOpaque(false);
-        sign.setContentAreaFilled(false);
-        sign.setBorderPainted(true);
+        sign = new Rectangle();
 
-        trash = new JButton();
-        add(trash);
-        trash.setOpaque(false);
-        trash.setContentAreaFilled(false);
-        trash.setBorderPainted(true);
+        trash = new Rectangle();
 
-        bakery = new JButton();
-        add(bakery);
-        bakery.setOpaque(false);
-        bakery.setContentAreaFilled(false);
-        bakery.setBorderPainted(true);
+        bakery = new Rectangle();
 
-        fruit = new JButton();
-        add(fruit);
-        fruit.setOpaque(false);
-        fruit.setContentAreaFilled(false);
-        fruit.setBorderPainted(true);
+        fruit = new Rectangle();
 
-        soup = new JButton();
-        add(soup);
-        soup.setOpaque(false);
-        soup.setContentAreaFilled(false);
-        soup.setBorderPainted(true);
+        soup = new Rectangle();
 
-        cooler = new JButton();
-        add(cooler);
-        cooler.setOpaque(false);
-        cooler.setContentAreaFilled(false);
-        cooler.setBorderPainted(true);
+        cooler = new Rectangle();
 
     }
 
-    private void placeButtons() {
+    private void placeStations() {
         student.setBounds(700, 400, student.width, student.height);
         counter.setBounds(639, 163, 40, 150);
         coffee.setBounds(221, 513, 289, 40);
         sign.setBounds(86, 355, 50, 45);
         trash.setBounds(59, 492, 114, 62);
         bakery.setBounds(5, 132, 50, 150);
-        fruit.setBounds(28, 5, 90, 90);
-        soup.setBounds(146, 17, 144, 83);
-        cooler.setBounds(318, 26, 310, 76);
+        fruit.setBounds(28, 5, 90, 65);
+        soup.setBounds(146, 17, 144, 40);
+        cooler.setBounds(318, 26, 310, 30);
 
+    }
+    
+    public Rectangle getCounter()
+    {
+        return counter;
+    }
+    
+    public Rectangle getCoffee()
+    {
+        return coffee;
+    }
+    
+    public Rectangle getSign()
+    {
+        return sign;
+    }
+    
+    public Rectangle getTrash()
+    {
+        return trash;
+    }
+    
+    public Rectangle getBakery()
+    {
+        return bakery;
+    }
+    
+    public Rectangle getFruit()
+    {
+        return fruit;
+    }
+    
+    public Rectangle getSoup()
+    {
+        return soup;
+    }
+    
+    public Rectangle getCooler()
+    {
+        return cooler;
     }
 
     @Override

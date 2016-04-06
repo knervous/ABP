@@ -20,6 +20,7 @@ public class ABPController {
         Student student = new Student();
         CharacterMovement charMovement = new CharacterMovement(student);
         AuBonPainPanel abp = new AuBonPainPanel(student, charMovement);
+        charMovement.setStations(abp.getCounter(), abp.getCoffee(), abp.getSign(), abp.getTrash(), abp.getBakery(), abp.getFruit(), abp.getSoup(), abp.getCooler());
         
         testFrame.add(abp);
         while(true)
