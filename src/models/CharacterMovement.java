@@ -88,7 +88,9 @@ public class CharacterMovement implements KeyListener {
         intersects();
 
         if (ke.getKeyCode() == KeyEvent.VK_SPACE) {
-            if (stationFound.equalsIgnoreCase("coffee") && Math.abs(student.getCenterX() - stations.get(1).getCenterX()) < 200 && Math.abs(student.getCenterY() - stations.get(1).getCenterY()) < 75) 
+            if (stationFound.equalsIgnoreCase("coffee") && 
+                Math.abs(student.getCenterX() - stations.get(1).getCenterX()) < 200 && 
+                Math.abs(student.getCenterY() - stations.get(1).getCenterY()) < 75) 
             {
                 System.out.println("coffee initiated");
             }

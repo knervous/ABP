@@ -48,14 +48,14 @@ public class AuBonPainPanel extends JPanel {
         placeStations();
         this.addKeyListener(characterMovement);
 
-//        this.addMouseMotionListener(new MouseAdapter() {
-//            @Override
-//            public void mouseMoved(MouseEvent e)
-//            {
-//                System.out.println(e.getPoint());
-//                temp.setText(e.getPoint().toString());
-//            }
-//        });
+        this.addMouseMotionListener(new MouseAdapter() {
+            @Override
+            public void mouseMoved(MouseEvent e)
+            {
+                System.out.println(e.getPoint());
+                temp.setText(e.getPoint().toString());
+            }
+        });
         this.setFocusable(true);
     }
 
@@ -81,12 +81,12 @@ public class AuBonPainPanel extends JPanel {
 
     private void placeStations() {
         student.setBounds(700, 400, student.width, student.height);
-        counter.setBounds(639, 163, 40, 150);
+        counter.setBounds(622, 158, 160, 192);
         coffee.setBounds(201, 513, 309, 40);
         sign.setBounds(86, 355, 50, 45);
         trash.setBounds(59, 492, 114, 62);
         bakery.setBounds(5, 132, 50, 150);
-        fruit.setBounds(28, 5, 90, 65);
+        fruit.setBounds(28, 5, 75, 65);
         soup.setBounds(146, 17, 144, 40);
         cooler.setBounds(318, 26, 310, 30);
 
