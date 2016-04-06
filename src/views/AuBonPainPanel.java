@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package views;
-
+import controllers.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -12,19 +12,25 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-public class AuBonPainPanel extends JPanel {
+public class AuBonPainPanel extends JPanel implements KeyListener {
     
     private JButton counter;
     private JButton coffee;
-    private JButton napkins;
-    private JButton utensils;
     private JButton sign;
     private JButton trash;
     private JButton bakery;
     private JButton fruit;
     private JButton soup;
     private JButton cooler;
+    private JButton exitOutside;
+    private JButton exitCompSci;
+    private CharacterMovement charMovement;
+    private Rectangle player = new Rectangle();
+    private String animation = "charleft1.png";
     
     private JLabel temp = new JLabel();
     
@@ -37,21 +43,23 @@ public class AuBonPainPanel extends JPanel {
         temp.setBounds(200,200,200,200);
         init();
         placeButtons();
-        
+        this.addKeyListener(this);
                 
-        this.addMouseMotionListener(new MouseAdapter() {
-            @Override
-            public void mouseMoved(MouseEvent e)
-            {
-                System.out.println(e.getPoint());
-                temp.setText(e.getPoint().toString());
-            }
-        });
+//        this.addMouseMotionListener(new MouseAdapter() {
+//            @Override
+//            public void mouseMoved(MouseEvent e)
+//            {
+//                System.out.println(e.getPoint());
+//                temp.setText(e.getPoint().toString());
+//            }
+//        });
         this.setFocusable(true);
     }
     
     private void init()
     {
+        charMovement = new CharacterMovement();
+        
         counter = new JButton();
         add(counter);
         counter.setOpaque(false);
@@ -63,18 +71,6 @@ public class AuBonPainPanel extends JPanel {
         coffee.setOpaque(false);
         coffee.setContentAreaFilled(false);
         coffee.setBorderPainted(true);
-        
-        napkins = new JButton();
-        add(napkins);
-        napkins.setOpaque(false);
-        napkins.setContentAreaFilled(false);
-        napkins.setBorderPainted(true);
-        
-        utensils = new JButton();
-        add(utensils);
-        utensils.setOpaque(false);
-        utensils.setContentAreaFilled(false);
-        utensils.setBorderPainted(true);
         
         sign = new JButton();
         add(sign);
@@ -116,19 +112,68 @@ public class AuBonPainPanel extends JPanel {
     
     private void placeButtons()
     {
+        player.setBounds(300,300,50,50);
         counter.setBounds(639,163,40,150);
-        coffee.setBounds(392,491,92,50);
-        napkins.setBounds(311,516,50,30);
-        utensils.setBounds(244,500,40,50);
+        coffee.setBounds(221,513,289,40);
+        sign.setBounds(86,355,50,45);
+        trash.setBounds(59,492,114,62);
+        bakery.setBounds(5,132,50,150);
+        fruit.setBounds(28,5,90,90);
+        soup.setBounds(146,17,144,83);
+        cooler.setBounds(318,26,310,76);
         
         
     }
+    
+    
+    
+    
     @Override
     protected void paintComponent(Graphics g) {
 
     super.paintComponent(g);
+        
         g.drawImage(new ImageIcon("floor.png").getImage(), 0, 0, null);
+        g.drawImage(new ImageIcon(animation).getImage(), player.x, player.y, null);
+        
 
+    }
+
+    @Override
+    public void keyTyped(KeyEvent ke) {
+        
+    }
+
+
+    
+    @Override
+    public void keyPressed(KeyEvent ke) {
+        
+        
+        if (ke.getKeyCode() == KeyEvent.VK_RIGHT) {
+            animation = "charright1.png";
+            player.x = player.x + 5;
+        }
+        if (ke.getKeyCode() == KeyEvent.VK_LEFT) {
+            animation = "charleft1.png";
+            player.x = player.x - 5;
+        }
+        if (ke.getKeyCode() == KeyEvent.VK_UP) {
+            animation = "charup1.png";
+            player.y = player.y - 5;
+        }
+        if (ke.getKeyCode() == KeyEvent.VK_DOWN) {
+            animation = "chardown1.png";
+            player.y = player.y +5;
+        }
+        
+    }
+
+    @Override
+    public void keyReleased(KeyEvent ke) {
+        
+        
+        
     }
     
 }

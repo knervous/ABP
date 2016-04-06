@@ -18,8 +18,7 @@ public class TestFrame extends JFrame {
         setSize(800,600);
         setVisible(true);
         validate();
-        add(new AuBonPainPanel());
-        
+ 
     }
     
 }
