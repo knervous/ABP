@@ -19,6 +19,7 @@ public class TestFrame extends JFrame {
         setVisible(true);
         validate();
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setFocusable(false);
     }
     
 }

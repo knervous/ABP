@@ -12,14 +12,12 @@ import java.awt.*;
 public class CharacterMovement implements KeyListener {
 
     private Customer student;
-    private int frame = 0;
     private String animation = "left1.png";
     private String facing = "";
-    private int stationFound;
     private ArrayList<Rectangle> stations = new ArrayList<>();
     private boolean isInteracting = false;
-    private int oldX;
-    private int oldY;
+    private int frame = 0;
+    private int stationNumber;
 
 
     public CharacterMovement(Customer inf_Student) {
@@ -34,9 +32,9 @@ public class CharacterMovement implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent ke) {
-        oldX = student.x;
-        oldY = student.y;
-
+        int oldX = student.x;
+        int oldY = student.y;
+        
         if (ke.getKeyCode() == KeyEvent.VK_RIGHT || ke.getKeyCode() == KeyEvent.VK_D) {
             if (frame < 5) {
                 animation = student.getAnimation()[0];
@@ -88,11 +86,11 @@ public class CharacterMovement implements KeyListener {
             isInteracting = false;
         }
 
-        intersects();
+        intersects(oldX, oldY);
 
         if (ke.getKeyCode() == KeyEvent.VK_SPACE && isInteracting) {
 
-            switch (stationFound) {
+            switch (stationNumber) {
 
                 case 0:
                     System.out.println("counter initiated");
@@ -124,17 +122,20 @@ public class CharacterMovement implements KeyListener {
         }
     }
     
-    private void intersects() {
-
+    private void intersects(int oldX, int oldY) {
+        
+        
         for (Rectangle station : stations) {
             if (student.intersects(station)) {
                 isInteracting = true;
                 facing = animation;
                 student.x = oldX;
                 student.y = oldY;
-                stationFound = stations.indexOf(station);
+                stationNumber = stations.indexOf(station);
             }
+            
         }
+        
     }
 
     @Override
