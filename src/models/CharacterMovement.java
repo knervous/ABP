@@ -190,25 +190,24 @@ import java.util.*;
 import java.awt.*;
 import views.AuBonPainPanel;
 
-
 public class CharacterMovement implements KeyListener {
 
     private Customer student;
     private int frame = 0;
     private String animation = "left1.png";
-    private String stationFound = "";
+    private String facing = "";
+    private int stationFound;
     private ArrayList<Rectangle> stations = new ArrayList<>();
     private boolean isInteracting = false;
     private int oldX;
     private int oldY;
+
 //    private HashMap stationsMap;
 //    private BreadStation breadStation = new BreadStation();
 //    private FruitStation fruitStation = new FruitStation();
 //    private CoolerStation coolerStation = new CoolerStation();
 //    private SoupStation soupStation = new SoupStation();
 //    private CoffeeStation coffeeStation = new CoffeeStation();
-    
-
     public CharacterMovement(Customer inf_Student) {
         student = inf_Student;
 //        this.stationsMap = stationsMap;
@@ -228,6 +227,7 @@ public class CharacterMovement implements KeyListener {
     public void keyPressed(KeyEvent ke) {
         oldX = student.x;
         oldY = student.y;
+
         if (ke.getKeyCode() == KeyEvent.VK_RIGHT || ke.getKeyCode() == KeyEvent.VK_D) {
             if (frame < 5) {
                 animation = student.getAnimation()[0];
@@ -275,58 +275,43 @@ public class CharacterMovement implements KeyListener {
             student.y = student.y + 5;
         }
 
+        if (!animation.equals(facing)) {
+            isInteracting = false;
+        }
+
         intersects();
 
-        if (ke.getKeyCode() == KeyEvent.VK_SPACE) {
-            
-            if (stationFound.equalsIgnoreCase("counter") &&
-                Math.abs(student.getCenterX() - stations.get(0).getCenterX()) < 130 && 
-                Math.abs(student.getCenterY() - stations.get(0).getCenterY()) < 60)
-            {
-                System.out.println("counter initiated");
+        if (ke.getKeyCode() == KeyEvent.VK_SPACE && isInteracting) {
+
+            switch (stationFound) {
+
+                case 0:
+                    System.out.println("counter initiated");
+                    break;
+                case 1:
+                    System.out.println("coffee initiated");
+                    break;
+                case 2:
+                    System.out.println("sign initiated");
+                    break;
+                case 3:
+                    System.out.println("trash initiated");
+                    break;
+                case 4:
+                    System.out.println("bakery initiated");
+                    break;
+                case 5:
+                    System.out.println("fruit initiated");
+                    break;
+                case 6:
+                    System.out.println("soup initiated");
+                    break;
+                case 7:
+                    System.out.println("cooler initiated");
+                    break;
+
             }
-            else if (stationFound.equalsIgnoreCase("coffee") && 
-                Math.abs(student.getCenterX() - stations.get(1).getCenterX()) < 200 && 
-                Math.abs(student.getCenterY() - stations.get(1).getCenterY()) < 75) 
-            {
-                System.out.println("coffee initiated");
-            }
-            else if (stationFound.equalsIgnoreCase("sign") && 
-                Math.abs(student.getCenterX() - stations.get(2).getCenterX()) < 50 && 
-                Math.abs(student.getCenterY() - stations.get(2).getCenterY()) < 80) 
-            {
-                System.out.println("sign initiated");
-            }
-            else if (stationFound.equalsIgnoreCase("trash") && 
-                Math.abs(student.getCenterX() - stations.get(3).getCenterX()) < 75 && 
-                Math.abs(student.getCenterY() - stations.get(3).getCenterY()) < 75)  
-            {
-                System.out.println("trash initiated");
-            }
-            else if (stationFound.equalsIgnoreCase("bakery") && 
-                Math.abs(student.getCenterX() - stations.get(4).getCenterX()) < 40 && 
-                Math.abs(student.getCenterY() - stations.get(4).getCenterY()) < 140) 
-            {
-                System.out.println("bakery initiated");
-            }
-            else if (stationFound.equalsIgnoreCase("fruit") && 
-                Math.abs(student.getCenterX() - stations.get(5).getCenterX()) < 70 && 
-                Math.abs(student.getCenterY() - stations.get(5).getCenterY()) < 90) 
-            {
-                System.out.println("fruit initiated");
-            }
-            else if (stationFound.equalsIgnoreCase("soup") && 
-                Math.abs(student.getCenterX() - stations.get(6).getCenterX()) < 80 && 
-                Math.abs(student.getCenterY() - stations.get(6).getCenterY()) < 80) 
-            {
-                System.out.println("soup initiated");
-            }
-            else if (stationFound.equalsIgnoreCase("cooler") && 
-                Math.abs(student.getCenterX() - stations.get(7).getCenterX()) < 180 && 
-                Math.abs(student.getCenterY() - stations.get(7).getCenterY()) < 80) 
-            {
-                System.out.println("cooler initiated");
-            }
+
         }
     }
 
@@ -353,53 +338,15 @@ public class CharacterMovement implements KeyListener {
     }
 
     private void intersects() {
-        if (student.intersects(stations.get(0))) {
-            student.x = oldX;
-            student.y = oldY;
-            stationFound = "counter";
-            System.out.println("counter found");
-        }
-        if (student.intersects(stations.get(1))) {
-            student.x = oldX;
-            student.y = oldY;
-            stationFound = "coffee";
-            System.out.println("coffee found");
-        }
-        if (student.intersects(stations.get(2))) {
-            student.x = oldX;
-            student.y = oldY;
-            stationFound = "sign";
-            System.out.println("sign found");
-        }
-        if (student.intersects(stations.get(3))) {
-            student.x = oldX;
-            student.y = oldY;
-            stationFound = "trash";
-            System.out.println("trash found");
-        }
-        if (student.intersects(stations.get(4))) {
-            student.x = oldX;
-            student.y = oldY;
-            stationFound = "bakery";
-            System.out.println("bakery found");
-        }
-        if (student.intersects(stations.get(5))) {
-            student.x = oldX;
-            student.y = oldY;
-            stationFound = "fruit";
-            System.out.println("fruit found");
-        }
-        if (student.intersects(stations.get(6))) {
-            student.x = oldX;
-            student.y = oldY;
-            stationFound = "soup";
-            System.out.println("soup found");
-        }
-        if (student.intersects(stations.get(7))) {
-            student.x = oldX;
-            student.y = oldY;
-            stationFound = "cooler";
-            System.out.println("cooler found");
+
+        for (Rectangle station : stations) {
+            if (student.intersects(station)) {
+                isInteracting = true;
+                facing = animation;
+                student.x = oldX;
+                student.y = oldY;
+                stationFound = stations.indexOf(station);
+            }
         }
     }
 
