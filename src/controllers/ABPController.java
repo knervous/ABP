@@ -55,5 +55,7 @@ public class ABPController {
                 
             }
         }
-    
-}
+    public static void triggerMenu(StoreObjects[] storeObjects, Stations station){
+        MenuPanel menuPanel = new MenuPanel(storeObjects, station);
+        }
+    }

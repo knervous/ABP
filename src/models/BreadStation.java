@@ -9,6 +9,16 @@ package models;
  *
  * @author greg
  */
-public class BreadStation {
+public class BreadStation extends Stations{
+    protected String stationName = "Bread Station";
+    protected Bagels bagels = new Bagels();
+    protected Croissants croissants = new Croissants();
+    protected Donuts donuts = new Donuts();
+    protected StoreObjects[] breads = {bagels, croissants, donuts};
     
+    public BreadStation(){
+        this.bagels = bagels;
+        this.croissants = croissants;
+        this.donuts = donuts;
+    }
 }

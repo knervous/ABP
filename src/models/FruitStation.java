@@ -9,6 +9,15 @@ package models;
  *
  * @author greg
  */
-public class FruitStation {
+public class FruitStation extends Stations{
+    protected String stationName = "Fruit Station";
+    protected Apples apples = new Apples();
+    protected Bananas bananas = new Bananas();
+    protected Oranges oranges = new Oranges();
     
+    public FruitStation(){
+        this.apples = apples;
+        this.bananas = bananas;
+        this.oranges = oranges;
+    }
 }

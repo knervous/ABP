@@ -4,6 +4,7 @@ package models;
  *
  * @author Paul
  */
+import controllers.ABPController;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.*;
@@ -94,9 +95,19 @@ public class CharacterMovement implements KeyListener {
 
                 case 0:
                     System.out.println("counter initiated");
+//                    FrontCounterStation fC = new FrontCounterStation();
+//                    Counter c = new Counter();
+//                    try{
+//                        ABPController abp = new ABPController(c, fC);
+//                    }
+//                    catch(Exception e){
+//                        e.printStackTrace();
+//                    }
                     break;
                 case 1:
                     System.out.println("coffee initiated");
+                    CoffeeStation cS = new CoffeeStation();
+                    ABPController.triggerMenu(cS.coffee, cS);
                     break;
                 case 2:
                     System.out.println("sign initiated");
