@@ -11,4 +11,13 @@ package models;
  */
 public class StoreObjects {
     
+    protected String name;
+    protected float cost;
+    protected int quantity;
+    
+    public StoreObjects()
+    {
+        
+    }
+    
 }

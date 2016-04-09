@@ -30,7 +30,7 @@ public class MenuPanel extends JFrame{
         content.setLayout(new GridBagLayout());
         layoutConst.insets = new Insets(10, 10, 10, 10);
         
-        stationName = new JLabel(station.name);
+        //stationName = new JLabel(station.name);
         
         for (int i = 0; i < storeObjects.length; i++){
             

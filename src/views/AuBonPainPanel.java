@@ -6,6 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.KeyListener;
+import java.util.*;
 
 public   class AuBonPainPanel extends JPanel {
     public static final int COUNTERWIDTH = 160;
@@ -40,17 +42,15 @@ public   class AuBonPainPanel extends JPanel {
 
     private JLabel temp = new JLabel();
 
-    public AuBonPainPanel(Customer inf_Student, CharacterMovement inf_charMovement) {
+    public AuBonPainPanel(Customer inf_Student) {
         super();
         student = inf_Student;
-        characterMovement = inf_charMovement;
         setSize(800, 600);
         setLayout(null);
         add(temp);
         temp.setBounds(200, 200, 200, 200);
         init();
         placeStations();
-        this.addKeyListener(characterMovement);
 
         this.addMouseMotionListener(new MouseAdapter() {
             @Override
@@ -89,45 +89,16 @@ public   class AuBonPainPanel extends JPanel {
 
     }
     
-    public Rectangle getCounter()
+    public ArrayList<Rectangle> getStations()
     {
-        return counter;
+        return new ArrayList<>(Arrays.asList(counter, coffee, sign, trash, bakery, fruit, soup, cooler));
     }
     
-    public Rectangle getCoffee()
+    public void setKeyListener(KeyListener kl)
     {
-        return coffee;
+        addKeyListener(kl);
     }
     
-    public Rectangle getSign()
-    {
-        return sign;
-    }
-    
-    public Rectangle getTrash()
-    {
-        return trash;
-    }
-    
-    public Rectangle getBakery()
-    {
-        return bakery;
-    }
-    
-    public Rectangle getFruit()
-    {
-        return fruit;
-    }
-    
-    public Rectangle getSoup()
-    {
-        return soup;
-    }
-    
-    public Rectangle getCooler()
-    {
-        return cooler;
-    }
 
     @Override
     protected void paintComponent(Graphics g) {
