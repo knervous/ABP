@@ -33,7 +33,7 @@ public class ABPController {
         student = new Customer();
         charMovement = new CharacterMovement();
         stations = new Stations();
-        abp = new AuBonPainPanel(student);
+        abp = new AuBonPainPanel(student, charMovement);
         
 
         testFrame.add(abp);

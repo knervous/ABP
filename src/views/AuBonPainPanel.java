@@ -42,7 +42,7 @@ public   class AuBonPainPanel extends JPanel {
 
     private JLabel temp = new JLabel();
 
-    public AuBonPainPanel(Customer inf_Student) {
+    public AuBonPainPanel(Customer inf_Student, CharacterMovement inf_characterMovement) {
         super();
         student = inf_Student;
         setSize(800, 600);
@@ -51,7 +51,7 @@ public   class AuBonPainPanel extends JPanel {
         temp.setBounds(200, 200, 200, 200);
         init();
         placeStations();
-
+        characterMovement = inf_characterMovement;
         this.addMouseMotionListener(new MouseAdapter() {
             @Override
             public void mouseMoved(MouseEvent e)
