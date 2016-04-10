@@ -27,6 +27,7 @@ public class ABPController {
     private CharacterMovement charMovement;
     private FoodStations stations;
     private Randomize randomize;
+    private MenuPanel menuPanel;
 
     public ABPController() throws Exception {
 
@@ -161,30 +162,30 @@ public class ABPController {
 //                    }
                             break;
                         case 1:
-                            System.out.println("coffee initiated");
-                            CoffeeStation cS = new CoffeeStation();
-                            //ABPController.triggerMenu(cS.coffee, cS);
+//                            System.out.println("coffee initiated");
+                            menuPanel = new MenuPanel(new CoffeeStation(randomize.getCoffeeObjects()));
                             break;
                         case 2:
-                            System.out.println("sign initiated");
+//                            System.out.println("sign initiated");
                             break;
                         case 3:
-                            System.out.println("trash initiated");
+//                            System.out.println("trash initiated");
                             break;
                         case 4:
-                            System.out.println("bakery initiated");
+//                            System.out.println("bakery initiated");
+                            menuPanel = new MenuPanel(new BreadStation(randomize.getBakeryObjects()));
                             break;
                         case 5:
-                            System.out.println("fruit initiated");
-                            
-                            MenuPanel menuPanel = new MenuPanel(new SoupStation(randomize.getFruitInventory()));
+//                            System.out.println("fruit initiated");
+                            menuPanel = new MenuPanel(new FruitStation(randomize.getFruitObjects()));
                             break;
                         case 6:
-                            System.out.println("soup initiated");
-                            //MenuPanel menuPanel = new MenuPanel(new SoupStation(randomize.getFruitInventory()));
+//                            System.out.println("soup initiated");
+                            menuPanel = new MenuPanel(new SoupStation(randomize.getSoupObjects()));
                             break;
                         case 7:
-                            System.out.println("cooler initiated");
+//                            System.out.println("cooler initiated");
+                            menuPanel = new MenuPanel(new CoolerStation(randomize.getCoolerObjects()));
                             break;
 
                     }

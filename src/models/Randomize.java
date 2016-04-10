@@ -27,10 +27,40 @@ public class Randomize {
         
         
     }
-    
-    public StoreObjects[] getFruitInventory()
-    {
+
+    /**
+     * @return the fruitObjects
+     */
+    public StoreObjects[] getFruitObjects() {
         return fruitObjects;
+    }
+
+    /**
+     * @return the soupObjects
+     */
+    public StoreObjects[] getSoupObjects() {
+        return soupObjects;
+    }
+
+    /**
+     * @return the coffeeObjects
+     */
+    public StoreObjects[] getCoffeeObjects() {
+        return coffeeObjects;
+    }
+
+    /**
+     * @return the coolerObjects
+     */
+    public StoreObjects[] getCoolerObjects() {
+        return coolerObjects;
+    }
+
+    /**
+     * @return the bakeryObjects
+     */
+    public StoreObjects[] getBakeryObjects() {
+        return bakeryObjects;
     }
     
 }
