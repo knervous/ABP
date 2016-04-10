@@ -33,8 +33,12 @@ public class MenuPanel extends JFrame{
         
         stationName = new JLabel(station.getStationName());
         System.out.println("STATION NAME: "+station.getStationName());
-        for (int i = 0; i < station.getStationObjects().length; i++){
+        
+        
+        for (StoreObjects stationObject : station.getStationObjects()) {
             
+            System.out.println(stationObject.getName());
+            System.out.println(stationObject.getQuantity());
         }
     }
     

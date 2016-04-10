@@ -13,15 +13,11 @@ public class FruitStation extends FoodStations{
     
     
     protected String stationName = "Fruit Station";
-    protected Apples apples = new Apples();
-    protected Bananas bananas = new Bananas();
-    protected Oranges oranges = new Oranges();
+
     
-    public FruitStation(){
-        this.apples = apples;
-        this.bananas = bananas;
-        this.oranges = oranges;
-        
+    public FruitStation(StoreObjects[] inf_station){
+        stationName = "Soup Station";
+        station = inf_station;
     }
 
 

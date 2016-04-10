@@ -12,14 +12,15 @@ package models;
 public class SoupStation extends FoodStations{
     
 
-    protected BroccoliCheddarSoup brocCheddarSoup = new BroccoliCheddarSoup();
-    protected ChickenNoodleSoup chickenNoodleSoup = new ChickenNoodleSoup();
-    protected TomatoSoup tomatoSoup = new TomatoSoup();
+//    protected BroccoliCheddarSoup brocCheddarSoup = new BroccoliCheddarSoup();
+//    protected ChickenNoodleSoup chickenNoodleSoup = new ChickenNoodleSoup();
+//    protected TomatoSoup tomatoSoup = new TomatoSoup();
     
-    public SoupStation(){
+    public SoupStation(StoreObjects[] foodObjects){
 
         stationName = "Soup Station";
-        station = new StoreObjects[]{brocCheddarSoup, chickenNoodleSoup, tomatoSoup};
+        station = foodObjects;
+//        station = new StoreObjects[]{brocCheddarSoup, chickenNoodleSoup, tomatoSoup};
     }
 
 }

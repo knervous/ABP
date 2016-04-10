@@ -16,9 +16,8 @@ public class BreadStation extends FoodStations{
     protected Donuts donuts = new Donuts();
     protected StoreObjects[] breads = {bagels, croissants, donuts};
     
-//    public BreadStation(){
-//        this.bagels = bagels;
-//        this.croissants = croissants;
-//        this.donuts = donuts;
-//    }
+    public BreadStation(){
+        stationName = "Soup Station";
+        station = new StoreObjects[]{bagels, croissants, donuts};
+    }
 }

@@ -22,15 +22,22 @@ public class StoreObjects {
    
     }
     
+   public String getName()
+   {
+       return name;
+   }
+   
+   public float getCost()
+   {
+       return cost;
+   }
     
-    public class Apple {
-        
-        Apple()
-        {
-            
-        }
-        
-    }
+   public int getQuantity()
+   {
+       return quantity;
+   }
 }
+
+
 
 

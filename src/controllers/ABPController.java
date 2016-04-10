@@ -26,6 +26,7 @@ public class ABPController {
     private Customer student;
     private CharacterMovement charMovement;
     private FoodStations stations;
+    private Randomize randomize;
 
     public ABPController() throws Exception {
 
@@ -34,6 +35,7 @@ public class ABPController {
         charMovement = new CharacterMovement();
         stations = new FoodStations();
         abp = new AuBonPainPanel(student, charMovement);
+        randomize = new Randomize();
 
         testFrame.add(abp);
 
@@ -174,10 +176,12 @@ public class ABPController {
                             break;
                         case 5:
                             System.out.println("fruit initiated");
+                            
+                            MenuPanel menuPanel = new MenuPanel(new SoupStation(randomize.getFruitInventory()));
                             break;
                         case 6:
                             System.out.println("soup initiated");
-                            MenuPanel menuPanel = new MenuPanel(new SoupStation());
+                            //MenuPanel menuPanel = new MenuPanel(new SoupStation(randomize.getFruitInventory()));
                             break;
                         case 7:
                             System.out.println("cooler initiated");

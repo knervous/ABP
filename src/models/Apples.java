@@ -11,4 +11,13 @@ package models;
  */
 public class Apples extends StoreObjects{
     
+
+    
+    public Apples(int rand)
+    {
+        quantity = rand;
+        name = "Apple";
+    }
+    
+    
 }
