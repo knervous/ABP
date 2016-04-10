@@ -18,6 +18,7 @@ public class TestFrame extends JFrame {
     {
         super();
         setSize(800,600);
+        setResizable(false);
         setVisible(true);
         validate();
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
