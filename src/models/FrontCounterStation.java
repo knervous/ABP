@@ -9,7 +9,7 @@ package models;
  *
  * @author greg
  */
-public class FrontCounterStation extends Stations{
+public class FrontCounterStation extends FoodStations{
     protected String stationName = "Front Counter";
     protected int quantity = -1;
     protected String name = null;

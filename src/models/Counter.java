@@ -9,6 +9,6 @@ package models;
  *
  * @author greg
  */
-public class Counter extends StoreObjects {
+public class Counter  {
     
 }

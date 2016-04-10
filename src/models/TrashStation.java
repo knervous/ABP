@@ -9,15 +9,10 @@ package models;
  *
  * @author greg
  */
-public class TrashStation extends Stations{
-    protected String stationName = "Trash";
-    protected int quantity = -1;
-    protected String name = null;
-    protected float cost = (float)-1.0;
+public class TrashStation {
+    
     
     public TrashStation(){
-        this.quantity = quantity;
-        this.name = name;
-        this.cost = cost;
+        
     }
 }

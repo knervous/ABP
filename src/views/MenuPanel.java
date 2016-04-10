@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package views;
+import models.*;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -26,14 +27,29 @@ public class MenuPanel extends JFrame{
     private GridBagConstraints layoutConst = new GridBagConstraints();
     private JPanel content = new JPanel();
     
-    public MenuPanel(Object[] storeObjects, Object station){
+    public MenuPanel(FoodStations station){
         content.setLayout(new GridBagLayout());
         layoutConst.insets = new Insets(10, 10, 10, 10);
         
-        //stationName = new JLabel(station.name);
-        
-        for (int i = 0; i < storeObjects.length; i++){
+        stationName = new JLabel(station.getStationName());
+        System.out.println("STATION NAME: "+station.getStationName());
+        for (int i = 0; i < station.getStationObjects().length; i++){
             
         }
+    }
+    
+    public MenuPanel(TrashStation trashStation)
+    {
+        
+    }
+    
+    public MenuPanel(FrontCounterStation counterStation)
+    {
+        
+    }
+    
+    public MenuPanel(SignStation signStation)
+    {
+        
     }
 }

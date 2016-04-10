@@ -9,7 +9,9 @@ package models;
  *
  * @author greg
  */
-public class FruitStation extends Stations{
+public class FruitStation extends FoodStations{
+    
+    
     protected String stationName = "Fruit Station";
     protected Apples apples = new Apples();
     protected Bananas bananas = new Bananas();
@@ -19,5 +21,8 @@ public class FruitStation extends Stations{
         this.apples = apples;
         this.bananas = bananas;
         this.oranges = oranges;
+        
     }
+
+
 }

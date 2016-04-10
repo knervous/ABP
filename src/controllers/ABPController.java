@@ -25,16 +25,15 @@ public class ABPController {
     private Timer gameTimer;
     private Customer student;
     private CharacterMovement charMovement;
-    private Stations stations;
+    private FoodStations stations;
 
     public ABPController() throws Exception {
 
         TestFrame testFrame = new TestFrame();
         student = new Customer();
         charMovement = new CharacterMovement();
-        stations = new Stations();
+        stations = new FoodStations();
         abp = new AuBonPainPanel(student, charMovement);
-        
 
         testFrame.add(abp);
 
@@ -64,8 +63,8 @@ public class ABPController {
         }
     }
 
-    public static void triggerMenu(StoreObjects[] storeObjects, Stations station) {
-        MenuPanel menuPanel = new MenuPanel(storeObjects, station);
+    public static void triggerMenu(StoreObjects[] storeObjects, FoodStations station) {
+        //MenuPanel menuPanel = new MenuPanel(storeObjects, station);
     }
 
     private void addKeyListener() {
@@ -178,6 +177,7 @@ public class ABPController {
                             break;
                         case 6:
                             System.out.println("soup initiated");
+                            MenuPanel menuPanel = new MenuPanel(new SoupStation());
                             break;
                         case 7:
                             System.out.println("cooler initiated");

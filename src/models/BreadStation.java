@@ -9,7 +9,7 @@ package models;
  *
  * @author greg
  */
-public class BreadStation extends Stations{
+public class BreadStation extends FoodStations{
     protected String stationName = "Bread Station";
     protected Bagels bagels = new Bagels();
     protected Croissants croissants = new Croissants();

@@ -9,16 +9,17 @@ package models;
  *
  * @author greg
  */
-public class SoupStation extends Stations{
-    protected String stationName = "Soup Station";
+public class SoupStation extends FoodStations{
+    
+
     protected BroccoliCheddarSoup brocCheddarSoup = new BroccoliCheddarSoup();
     protected ChickenNoodleSoup chickenNoodleSoup = new ChickenNoodleSoup();
     protected TomatoSoup tomatoSoup = new TomatoSoup();
-    protected StoreObjects[] soups = {brocCheddarSoup, chickenNoodleSoup, tomatoSoup};
     
     public SoupStation(){
-        this.brocCheddarSoup = brocCheddarSoup;
-        this.chickenNoodleSoup = chickenNoodleSoup;
-        this.tomatoSoup = tomatoSoup;
+
+        stationName = "Soup Station";
+        station = new StoreObjects[]{brocCheddarSoup, chickenNoodleSoup, tomatoSoup};
     }
+
 }

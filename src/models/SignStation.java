@@ -9,15 +9,10 @@ package models;
  *
  * @author greg
  */
-public class SignStation extends Stations{
-    protected String stationName = "Store Sign";
-    protected int quantity = -1;
-    protected String name = null;
-    protected float cost = (float)-1.0;
+public class SignStation {
+    
     
     public SignStation(){
-        this.quantity = quantity;
-        this.name = name;
-        this.cost = cost;
+        
     }
 }

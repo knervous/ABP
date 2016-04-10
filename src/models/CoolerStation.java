@@ -9,7 +9,7 @@ package models;
  *
  * @author greg
  */
-public class CoolerStation extends Stations{
+public class CoolerStation extends FoodStations{
     protected String stationName = "Cooler Station";
     protected ChefSalad chefSalad = new ChefSalad();
     protected CaesarSalad caesarSalad = new CaesarSalad();

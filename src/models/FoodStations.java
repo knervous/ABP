@@ -9,28 +9,25 @@ package models;
  *
  * @author greg
  */
-public class StoreObjects {
+public class FoodStations {
+
+    protected StoreObjects[] station;
+    protected String stationName;
     
-    protected String name;
-    protected float cost;
-    protected int quantity;
+    public FoodStations()
     
-    public StoreObjects()
     {
         
+    }
+
     
-   
+    public StoreObjects[] getStationObjects()
+    {
+        return station;
     }
     
-    
-    public class Apple {
-        
-        Apple()
-        {
-            
-        }
-        
+    public String getStationName()
+    {
+        return stationName;
     }
 }
-
-
