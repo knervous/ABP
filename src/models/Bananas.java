@@ -17,6 +17,7 @@ public class Bananas extends StoreObjects{
     {
         quantity = rand;
         name = "Bananas";
+        cost = 7.00f;
     }
     
 }

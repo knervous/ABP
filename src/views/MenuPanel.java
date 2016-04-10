@@ -35,10 +35,11 @@ public class MenuPanel extends JFrame{
         System.out.println("STATION NAME: "+station.getStationName());
         
         
-        for (StoreObjects stationObject : station.getStationObjects()) {
+        for (StoreObjects storeObject : station.getStationObjects()) {
             
-            System.out.println(stationObject.getName());
-            System.out.println(stationObject.getQuantity());
+            System.out.println(storeObject.getName());
+            System.out.println(storeObject.getCost());
+            System.out.println(storeObject.getQuantity());
         }
     }
     

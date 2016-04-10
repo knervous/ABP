@@ -17,6 +17,7 @@ public class Apples extends StoreObjects{
     {
         quantity = rand;
         name = "Apple";
+        cost = 2.50f;
     }
     
     
