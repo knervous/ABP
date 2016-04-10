@@ -36,8 +36,10 @@ public class ABPController {
         charMovement = new CharacterMovement();
         stations = new FoodStations();
         abp = new AuBonPainPanel(student, charMovement);
+        testFrame.setFocusable(false);
+        abp.setFocusable(true);
         randomize = new Randomize();
-
+        
         testFrame.add(abp);
 
         addKeyListener();
@@ -120,10 +122,10 @@ public class ABPController {
                     student.y = student.y - 5;
                 } else if (ke.getKeyCode() == KeyEvent.VK_DOWN || ke.getKeyCode() == KeyEvent.VK_S) {
                     if (charMovement.getFrame() < 5) {
-                        charMovement.setAnimation(student.getAnimation()[5]);
+                        charMovement.setAnimation(student.getAnimation()[6]);
                         charMovement.setFrame(charMovement.getFrame() + 1);
                     } else if (charMovement.getFrame() >= 5 && charMovement.getFrame() < 10) {
-                        charMovement.setAnimation(student.getAnimation()[6]);
+                        charMovement.setAnimation(student.getAnimation()[7]);
                         charMovement.setFrame(charMovement.getFrame() + 1);
                     } else if (charMovement.getFrame() > 9) {
                         charMovement.setFrame(0);
