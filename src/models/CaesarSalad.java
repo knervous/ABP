@@ -11,4 +11,10 @@ package models;
  */
 public class CaesarSalad extends StoreObjects{
     
+    public CaesarSalad(int rand)
+    {
+        quantity = rand;
+        name = "Caesar Salad";
+        cost = 3.50f;
+    }
 }

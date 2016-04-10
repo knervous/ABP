@@ -11,4 +11,10 @@ package models;
  */
 public class VeggieWrap extends StoreObjects{
     
+    public VeggieWrap(int rand)
+    {
+        quantity = rand;
+        name = "Veggie Wrap";
+        cost = 4.75f;
+    }
 }

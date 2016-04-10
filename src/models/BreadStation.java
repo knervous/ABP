@@ -10,14 +10,9 @@ package models;
  * @author greg
  */
 public class BreadStation extends FoodStations{
-    protected String stationName = "Bread Station";
-    protected Bagels bagels = new Bagels();
-    protected Croissants croissants = new Croissants();
-    protected Donuts donuts = new Donuts();
-    protected StoreObjects[] breads = {bagels, croissants, donuts};
     
-    public BreadStation(){
-        stationName = "Soup Station";
-        station = new StoreObjects[]{bagels, croissants, donuts};
+    public BreadStation(StoreObjects[] inf_station){
+        stationName = "Bread Station";
+        station = inf_station;
     }
 }

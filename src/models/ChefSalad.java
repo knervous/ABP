@@ -11,4 +11,10 @@ package models;
  */
 public class ChefSalad extends StoreObjects{
     
+    public ChefSalad(int rand)
+    {
+        quantity = rand;
+        name = "Apple";
+        cost = 4.00f;
+    }
 }

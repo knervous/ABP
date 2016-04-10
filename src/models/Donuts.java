@@ -11,4 +11,10 @@ package models;
  */
 public class Donuts extends StoreObjects{
     
+    public Donuts(int rand)
+    {
+        quantity = rand;
+        name = "Donut";
+        cost = 1.50f;
+    }
 }

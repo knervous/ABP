@@ -11,4 +11,11 @@ package models;
  */
 public class FrenchVanillaCoffee extends StoreObjects{
     
+    public FrenchVanillaCoffee(int rand)
+    {
+        quantity = rand;
+        name = "French Vanilla Coffee";
+        cost = 3.00f;
+    }
+    
 }

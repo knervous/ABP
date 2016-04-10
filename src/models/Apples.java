@@ -10,15 +10,11 @@ package models;
  * @author greg
  */
 public class Apples extends StoreObjects{
-    
 
-    
     public Apples(int rand)
     {
         quantity = rand;
         name = "Apple";
         cost = 2.50f;
     }
-    
-    
 }

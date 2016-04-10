@@ -11,4 +11,10 @@ package models;
  */
 public class TurkeyWrap extends StoreObjects{
     
+    public TurkeyWrap(int rand)
+    {
+        quantity = rand;
+        name = "Turkey Wrap";
+        cost = 2.50f;
+    }
 }

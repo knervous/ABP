@@ -11,4 +11,10 @@ package models;
  */
 public class BroccoliCheddarSoup extends StoreObjects{
     
+    public BroccoliCheddarSoup(int rand)
+    {
+        quantity = rand;
+        name = "Broccoli Cheddar Soup";
+        cost = 5.50f;
+    }
 }

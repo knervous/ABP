@@ -10,15 +10,9 @@ package models;
  * @author greg
  */
 public class CoffeeStation extends FoodStations{
-    protected String name = "Coffee Station";
-    protected RegularCoffee regCoffee = new RegularCoffee();
-    protected FrenchVanillaCoffee frenchVanillaCoffee = new FrenchVanillaCoffee();
-    protected SeasonalCoffee seasonalCoffee = new SeasonalCoffee();
-    protected StoreObjects[] coffee = {regCoffee, frenchVanillaCoffee, seasonalCoffee};
     
-    public CoffeeStation(){
-        this.regCoffee = regCoffee;
-        this.frenchVanillaCoffee = frenchVanillaCoffee;
-        this.seasonalCoffee = seasonalCoffee;
+    public CoffeeStation(StoreObjects[] inf_station){
+        stationName = "Coffee Station";
+        station = inf_station;
     }
 }

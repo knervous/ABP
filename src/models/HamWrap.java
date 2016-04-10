@@ -11,4 +11,10 @@ package models;
  */
 public class HamWrap extends StoreObjects{
     
+    public HamWrap(int rand)
+    {
+        quantity = rand;
+        name = "Ham Wrap";
+        cost = 5.50f;
+    }
 }
