@@ -9,6 +9,7 @@ import models.*;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -28,6 +29,7 @@ public class MenuPanel extends JFrame{
     private JLabel actualCost;
     private JLabel actualQuantity;
     private JSpinner quantSpin;
+    private Double[] placeHolder;
     private SpinnerNumberModel spinModel = new SpinnerNumberModel(0.0, 0.0, 100.0, 1.0);
 //    private ArrayList<String> helper = new ArrayList<String>();
     private int offset = 2;
@@ -59,27 +61,7 @@ public class MenuPanel extends JFrame{
         layoutConst.gridy = 1;
         content.add(cost, layoutConst);
         
-//        for (int i = 0; i < station.getStationObjects().length; i++){
-//            helper.add(station.getStationObjects()[i].getName());
-//            helper.add(Integer.toString(station.getStationObjects()[i].getQuantity()));
-//            helper.add("$" + Float.toString(station.getStationObjects()[i].getCost()));
-//        }
-//        for (int i = 0; i < helper.size(); i++){
-//            actualItem = new JLabel(helper.get(i));
-//            layoutConst.gridx = 0;
-//            layoutConst.gridy = i + offset;
-//            content.add(actualItem, layoutConst);
-//            
-//            actualQuantity = new JLabel(helper.get(i));
-//            layoutConst.gridx = 1;
-//            layoutConst.gridy = i + offset;
-//            content.add(actualQuantity, layoutConst);
-//            
-//            actualCost = new JLabel("$" + Float.toString(station.getStationObjects()[i].getCost()));
-//            layoutConst.gridx = 2;
-//            layoutConst.gridy = i + offset;
-//            content.add(actualCost, layoutConst);
-//        }
+        placeHolder = new Double[station.getStationObjects().length];
             
         
         for (int i = 0; i < station.getStationObjects().length; i++){
@@ -98,7 +80,10 @@ public class MenuPanel extends JFrame{
             layoutConst.gridy = i + offset;
             content.add(actualCost, layoutConst);
             
-            quantSpin = new JSpinner
+            quantSpin = new JSpinner(spinModel);
+            layoutConst.gridx = 3;
+            layoutConst.gridy = i + offset;
+            content.add(quantSpin, layoutConst);
         }
 //            System.out.println(storeObject.getName());
 //            System.out.println(storeObject.getCost());
