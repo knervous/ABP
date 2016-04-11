@@ -28,12 +28,17 @@ public class MenuPanel extends JFrame{
     private JLabel actualItem;
     private JLabel actualCost;
     private JLabel actualQuantity;
+    private SpinnerNumberModel spinModel1 = new SpinnerNumberModel(0.0, 0.0, 100.0, 1.0);
+    private SpinnerNumberModel spinModel2 = new SpinnerNumberModel(0.0, 0.0, 100.0, 1.0);
+    private SpinnerNumberModel spinModel3 = new SpinnerNumberModel(0.0, 0.0, 100.0, 1.0);
+    private SpinnerNumberModel spinModel4 = new SpinnerNumberModel(0.0, 0.0, 100.0, 1.0);
+    private SpinnerNumberModel spinModel5 = new SpinnerNumberModel(0.0, 0.0, 100.0, 1.0);
+    private SpinnerNumberModel spinModel6 = new SpinnerNumberModel(0.0, 0.0, 100.0, 1.0);
+    private SpinnerNumberModel spinModel7 = new SpinnerNumberModel(0.0, 0.0, 100.0, 1.0);
+    private SpinnerNumberModel[] spinModelArray = {spinModel1, spinModel2, spinModel3,
+    spinModel4, spinModel5, spinModel6, spinModel7};
     private JSpinner quantSpin;
-    private Double[] placeHolder;
-    private SpinnerNumberModel spinModel = new SpinnerNumberModel(0.0, 0.0, 100.0, 1.0);
-//    private ArrayList<String> helper = new ArrayList<String>();
     private int offset = 2;
-    
     private GridBagConstraints layoutConst = new GridBagConstraints();
     private JPanel content = new JPanel();
     
@@ -60,11 +65,9 @@ public class MenuPanel extends JFrame{
         layoutConst.gridx = 2;
         layoutConst.gridy = 1;
         content.add(cost, layoutConst);
-        
-        placeHolder = new Double[station.getStationObjects().length];
-            
-        
+                   
         for (int i = 0; i < station.getStationObjects().length; i++){
+            
             actualItem = new JLabel(station.getStationObjects()[i].getName());
             layoutConst.gridx = 0;
             layoutConst.gridy = i + offset;
@@ -80,7 +83,7 @@ public class MenuPanel extends JFrame{
             layoutConst.gridy = i + offset;
             content.add(actualCost, layoutConst);
             
-            quantSpin = new JSpinner(spinModel);
+            quantSpin = new JSpinner(spinModelArray[i]);
             layoutConst.gridx = 3;
             layoutConst.gridy = i + offset;
             content.add(quantSpin, layoutConst);
