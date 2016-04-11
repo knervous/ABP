@@ -9,6 +9,7 @@ import models.*;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -29,16 +30,8 @@ public class MenuPanel extends JFrame{
     private JLabel actualCost;
     private JLabel actualQuantity;
     private JButton grabItems;
-    private SpinnerNumberModel spinModel1 = new SpinnerNumberModel(0.0, 0.0, 100.0, 1.0);
-    private SpinnerNumberModel spinModel2 = new SpinnerNumberModel(0.0, 0.0, 100.0, 1.0);
-    private SpinnerNumberModel spinModel3 = new SpinnerNumberModel(0.0, 0.0, 100.0, 1.0);
-    private SpinnerNumberModel spinModel4 = new SpinnerNumberModel(0.0, 0.0, 100.0, 1.0);
-    private SpinnerNumberModel spinModel5 = new SpinnerNumberModel(0.0, 0.0, 100.0, 1.0);
-    private SpinnerNumberModel spinModel6 = new SpinnerNumberModel(0.0, 0.0, 100.0, 1.0);
-    private SpinnerNumberModel spinModel7 = new SpinnerNumberModel(0.0, 0.0, 100.0, 1.0);
-    private SpinnerNumberModel[] spinModelArray = {spinModel1, spinModel2, spinModel3,
-    spinModel4, spinModel5, spinModel6, spinModel7};
     private JSpinner quantSpin;
+    private ArrayList<JSpinner> allSpinners = new ArrayList<JSpinner>();
     private int offset = 2;
     private GridBagConstraints layoutConst = new GridBagConstraints();
     private JPanel content = new JPanel();
@@ -86,12 +79,13 @@ public class MenuPanel extends JFrame{
             layoutConst.gridy = i + offset;
             content.add(actualCost, layoutConst);
             
-            quantSpin = new JSpinner(spinModelArray[i]);
+            quantSpin = new JSpinner(new SpinnerNumberModel(0.0, 0.0, 100.0, 1.0));
             layoutConst.gridx = 3;
             layoutConst.gridy = i + offset;
             content.add(quantSpin, layoutConst);
             
             i++;
+            allSpinners.add(quantSpin);
         }
         grabItems = new JButton("Grab Items");
         layoutConst.gridx = 0;
