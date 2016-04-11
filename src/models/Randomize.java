@@ -14,18 +14,14 @@ public class Randomize {
     private StoreObjects[] coolerObjects;
     private StoreObjects[] bakeryObjects;
     private Random rand = new Random();
-    private int randInt = rand.nextInt(20);
-
 
     
     public Randomize(){
-        fruitObjects = new StoreObjects[]{ new Apples(randInt) , new Bananas(randInt) , new Oranges(randInt) };
-        soupObjects = new StoreObjects[]{ new TomatoSoup(randInt) , new BroccoliCheddarSoup(randInt) , new ChickenNoodleSoup(randInt) };
-        coffeeObjects = new StoreObjects[]{ new FrenchVanillaCoffee(randInt) , new RegularCoffee(randInt) , new SeasonalCoffee(randInt) };
-        coolerObjects = new StoreObjects[]{ new CaesarSalad(randInt) , new ChefSalad(randInt) , new HamWrap(randInt), new TurkeyWrap(randInt) , new VeggieWrap(randInt) };
-        bakeryObjects = new StoreObjects[]{ new Bagels(randInt) , new Croissants(randInt) , new Donuts(randInt) };
-        
-        
+        fruitObjects = new StoreObjects[]{ new Apples(rand.nextInt(20)) , new Bananas(rand.nextInt(20)) , new Oranges(rand.nextInt(20)) };
+        soupObjects = new StoreObjects[]{ new TomatoSoup(rand.nextInt(20)) , new BroccoliCheddarSoup(rand.nextInt(20)) , new ChickenNoodleSoup(rand.nextInt(20)) };
+        coffeeObjects = new StoreObjects[]{ new FrenchVanillaCoffee(rand.nextInt(20)) , new RegularCoffee(rand.nextInt(20)) , new SeasonalCoffee(rand.nextInt(20)) };
+        coolerObjects = new StoreObjects[]{ new CaesarSalad(rand.nextInt(20)) , new ChefSalad(rand.nextInt(20)) , new HamWrap(rand.nextInt(20)), new TurkeyWrap(rand.nextInt(20)) , new VeggieWrap(rand.nextInt(20)) };
+        bakeryObjects = new StoreObjects[]{ new Bagels(rand.nextInt(20)) , new Croissants(rand.nextInt(20)) , new Donuts(rand.nextInt(20)) };
     }
 
     /**
