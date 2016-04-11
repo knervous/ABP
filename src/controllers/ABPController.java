@@ -73,7 +73,7 @@ public class ABPController {
     }
 
     private void addKeyListener() {
-
+        abp.requestFocusInWindow();
         abp.setKeyListener(new KeyListener() {
 
             @Override

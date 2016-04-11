@@ -9,10 +9,11 @@ import models.*;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
 
 /**
  *
@@ -26,6 +27,8 @@ public class MenuPanel extends JFrame{
     private JLabel actualItem;
     private JLabel actualCost;
     private JLabel actualQuantity;
+    private JSpinner quantSpin;
+    private SpinnerNumberModel spinModel = new SpinnerNumberModel(0.0, 0.0, 100.0, 1.0);
 //    private ArrayList<String> helper = new ArrayList<String>();
     private int offset = 2;
     
@@ -94,6 +97,8 @@ public class MenuPanel extends JFrame{
             layoutConst.gridx = 2;
             layoutConst.gridy = i + offset;
             content.add(actualCost, layoutConst);
+            
+            quantSpin = new JSpinner
         }
 //            System.out.println(storeObject.getName());
 //            System.out.println(storeObject.getCost());
