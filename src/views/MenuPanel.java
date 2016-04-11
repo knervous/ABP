@@ -9,7 +9,7 @@ import models.*;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.util.ArrayList;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -28,6 +28,7 @@ public class MenuPanel extends JFrame{
     private JLabel actualItem;
     private JLabel actualCost;
     private JLabel actualQuantity;
+    private JButton grabItems;
     private SpinnerNumberModel spinModel1 = new SpinnerNumberModel(0.0, 0.0, 100.0, 1.0);
     private SpinnerNumberModel spinModel2 = new SpinnerNumberModel(0.0, 0.0, 100.0, 1.0);
     private SpinnerNumberModel spinModel3 = new SpinnerNumberModel(0.0, 0.0, 100.0, 1.0);
@@ -65,8 +66,10 @@ public class MenuPanel extends JFrame{
         layoutConst.gridx = 2;
         layoutConst.gridy = 1;
         content.add(cost, layoutConst);
+        
+        int i = 0;
                    
-        for (int i = 0; i < station.getStationObjects().length; i++){
+        while (i < station.getStationObjects().length){
             
             actualItem = new JLabel(station.getStationObjects()[i].getName());
             layoutConst.gridx = 0;
@@ -87,10 +90,13 @@ public class MenuPanel extends JFrame{
             layoutConst.gridx = 3;
             layoutConst.gridy = i + offset;
             content.add(quantSpin, layoutConst);
+            
+            i++;
         }
-//            System.out.println(storeObject.getName());
-//            System.out.println(storeObject.getCost());
-//            System.out.println(storeObject.getQuantity());
+        grabItems = new JButton("Grab Items");
+        layoutConst.gridx = 0;
+        layoutConst.gridy = i + offset + 1;
+        content.add(grabItems, layoutConst);
         
         this.setContentPane(content);
         this.pack();
