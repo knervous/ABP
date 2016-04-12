@@ -28,6 +28,7 @@ public class ABPController {
     private FoodStations stations;
     private Randomize randomize;
     private MenuPanel menuPanel;
+    private Inventory inventory;
 
     public ABPController() throws Exception {
 
@@ -83,6 +84,8 @@ public class ABPController {
 
             @Override
             public void keyPressed(KeyEvent ke) {
+                if(menuPanel!=null) menuPanel.dispose();
+                if(inventory!=null) inventory.dispose();
                 int oldX = student.x;
                 int oldY = student.y;
 
@@ -132,22 +135,12 @@ public class ABPController {
                     }
                     student.y = student.y + 5;
                 }
-
-                if (!charMovement.getAnimation().equals(charMovement.getFacing())) {
-                    charMovement.setIsInteracting(false);
+                
+                if(ke.getKeyCode() == KeyEvent.VK_I)
+                {
+                    inventory = new Inventory(new CharacterInventory());
                 }
-
-                for (Rectangle station : abp.getStations()) {
-                    if (student.intersects(station)) {
-                        charMovement.setIsInteracting(true);
-                        charMovement.setFacing(charMovement.getAnimation());
-                        student.x = oldX;
-                        student.y = oldY;
-                        charMovement.setStationNumber(abp.getStations().indexOf(station));
-                    }
-
-                }
-
+                
                 if (ke.getKeyCode() == KeyEvent.VK_SPACE && charMovement.getIsInteracting()) {
 
                     switch (charMovement.getStationNumber()) {
@@ -190,6 +183,22 @@ public class ABPController {
                             menuPanel = new MenuPanel(new CoolerStation(randomize.getCoolerObjects()));
                             break;
 
+                    }
+
+                }
+                
+                
+                if (!charMovement.getAnimation().equals(charMovement.getFacing())) {
+                    charMovement.setIsInteracting(false);
+                }
+
+                for (Rectangle station : abp.getStations()) {
+                    if (student.intersects(station)) {
+                        charMovement.setIsInteracting(true);
+                        charMovement.setFacing(charMovement.getAnimation());
+                        student.x = oldX;
+                        student.y = oldY;
+                        charMovement.setStationNumber(abp.getStations().indexOf(station));
                     }
 
                 }

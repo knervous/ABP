@@ -21,8 +21,7 @@ import javax.swing.SpinnerNumberModel;
  *
  * @author greg
  */
-public class MenuPanel extends JFrame{
-    private JLabel stationName;
+public class Inventory extends JFrame{
     private JLabel item;
     private JLabel cost;
     private JLabel quantity;
@@ -36,14 +35,11 @@ public class MenuPanel extends JFrame{
     private GridBagConstraints layoutConst = new GridBagConstraints();
     private JPanel content = new JPanel();
     
-    public MenuPanel(FoodStations station){
+    public Inventory(CharacterInventory inventory){
         content.setLayout(new GridBagLayout());
         layoutConst.insets = new Insets(10, 10, 10, 10);
         
-        stationName = new JLabel(station.getStationName());
-        layoutConst.gridx = 1;
-        layoutConst.gridy = 0;
-        content.add(stationName, layoutConst);
+
 
         item = new JLabel("Item");
         layoutConst.gridx = 0;
@@ -62,54 +58,31 @@ public class MenuPanel extends JFrame{
         
         int i = 0;
                    
-        while (i < station.getStationObjects().length){
+        while (i < inventory.getInventoryObjects().size()){
             
-            actualItem = new JLabel(station.getStationObjects()[i].getName());
+            actualItem = new JLabel(inventory.getInventoryObjects().get(i).getName());
             layoutConst.gridx = 0;
             layoutConst.gridy = i + offset;
             content.add(actualItem, layoutConst);
             
-            actualQuantity = new JLabel(Integer.toString(station.getStationObjects()[i].getQuantity()));
+            actualQuantity = new JLabel(Integer.toString(inventory.getInventoryObjects().get(i).getQuantity()));
             layoutConst.gridx = 1;
             layoutConst.gridy = i + offset;
             content.add(actualQuantity, layoutConst);
             
-            actualCost = new JLabel(String.format("$%.2f",station.getStationObjects()[i].getCost()));
+            actualCost = new JLabel("$" + String.format("$%.2f",inventory.getInventoryObjects().get(i).getCost()));
             layoutConst.gridx = 2;
             layoutConst.gridy = i + offset;
             content.add(actualCost, layoutConst);
             
-            quantSpin = new JSpinner(new SpinnerNumberModel(0.0, 0.0, 100.0, 1.0));
-            layoutConst.gridx = 3;
-            layoutConst.gridy = i + offset;
-            content.add(quantSpin, layoutConst);
-            
+
             i++;
-            allSpinners.add(quantSpin);
         }
-        grabItems = new JButton("Grab Items");
-        layoutConst.gridx = 0;
-        layoutConst.gridy = i + offset + 1;
-        content.add(grabItems, layoutConst);
         
         this.setContentPane(content);
         this.pack();
-        this.setTitle(station.getStationName());
+        this.setTitle("CHARACTER INVENTORY");
         setVisible(true);
     }
     
-    public MenuPanel(TrashStation trashStation)
-    {
-        
-    }
-    
-    public MenuPanel(FrontCounterStation counterStation)
-    {
-        
-    }
-    
-    public MenuPanel(SignStation signStation)
-    {
-        
-    }
 }
