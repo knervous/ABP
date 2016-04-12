@@ -182,8 +182,9 @@ public class ABPController {
 //                            System.out.println("cooler initiated");
                             menuPanel = new MenuPanel(new CoolerStation(randomize.getCoolerObjects()));
                             break;
-
+                            
                     }
+                    
 
                 }
                 
