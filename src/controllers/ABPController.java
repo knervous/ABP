@@ -43,7 +43,7 @@ public class ABPController {
         randomize = new Randomize();
         menuPanel = new MenuPanel();
         charInventory = new CharacterInventory();
-        
+
         testFrame.add(abp);
 
         addKeyListener();
@@ -77,11 +77,9 @@ public class ABPController {
     }
 
     private void addKeyListener() {
-        
-        
-        
+
         abp.requestFocusInWindow();
-        
+
         abp.setKeyListener(new KeyListener() {
 
             @Override
@@ -91,14 +89,15 @@ public class ABPController {
 
             @Override
             public void keyPressed(KeyEvent ke) {
-                if(menuPanel!=null) menuPanel.dispose();
-                if(inventory!=null) inventory.dispose();
+                if (menuPanel != null) {
+                    menuPanel.dispose();                
+                }
+                if (inventory != null) {
+                    inventory.dispose();
+                }
                 int oldX = student.x;
                 int oldY = student.y;
-                
-                
-                
-                
+
                 if (ke.getKeyCode() == KeyEvent.VK_RIGHT || ke.getKeyCode() == KeyEvent.VK_D) {
                     if (charMovement.getFrame() < 5) {
                         charMovement.setAnimation(student.getAnimation()[0]);
@@ -145,14 +144,13 @@ public class ABPController {
                     }
                     student.y = student.y + 5;
                 }
-                
-                if(ke.getKeyCode() == KeyEvent.VK_I)
-                {
+
+                if (ke.getKeyCode() == KeyEvent.VK_I) {
                     inventory = new Inventory(charInventory);
                 }
-                
+
                 if (ke.getKeyCode() == KeyEvent.VK_SPACE && charMovement.getIsInteracting()) {
-                
+
                     switch (charMovement.getStationNumber()) {
 
                         case 0:
@@ -192,26 +190,24 @@ public class ABPController {
 //                            System.out.println("cooler initiated");
                             menuPanel.populateFoodMenu(new CoolerStation(randomize.getCoolerObjects()));
                             break;
-                            
-                    }
-                    
-                    menuPanel.addItemsToInv((new ActionListener(){
 
-                @Override
-                public void actionPerformed(ActionEvent ae) {
-                    StoreObjects[] objectsTemp = menuPanel.getStoreObjects();
-                
-                    for(int i = 0 ; i < objectsTemp.length ; i++)
-                    {
-                        charInventory.addItem(objectsTemp[i], menuPanel.getSpinnerValue(i));
                     }
-                    }
-                }));
-                    
+                    menuPanel.addItemsToInv(new ActionListener() {
+
+                        @Override
+                        public void actionPerformed(ActionEvent ae) {
+
+                            for (int i = 0; i < menuPanel.getStoreObjects().length; i++) {
+                                charInventory.addItem(menuPanel.getStoreObjects()[i], menuPanel.getSpinnerValue(i));
+
+                            }
+                            
+                        }
+
+                    });
 
                 }
-                
-                
+
                 if (!charMovement.getAnimation().equals(charMovement.getFacing())) {
                     charMovement.setIsInteracting(false);
                 }
@@ -233,7 +229,6 @@ public class ABPController {
 
             }
         });
-        
-        
+
     }
 }

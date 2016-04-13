@@ -18,7 +18,6 @@ import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.JSpinner.DefaultEditor;
-import java.awt.*;
 
 /**
  *
@@ -43,6 +42,7 @@ public class MenuPanel extends JFrame{
     
     public void populateFoodMenu(FoodStations station){
         this.infStation = station;
+        allSpinners.clear();
         content.removeAll();
         content.setLayout(new GridBagLayout());
         layoutConst.insets = new Insets(10, 10, 10, 10);
@@ -121,6 +121,11 @@ public class MenuPanel extends JFrame{
     public StoreObjects[] getStoreObjects()
     {
         return infStation.getStationObjects();
+    }
+    
+    public JButton getGrabItems()
+    {
+        return grabItems;
     }
     
     public void populateTrashMenu(TrashStation trashStation)

@@ -66,7 +66,7 @@ public class Inventory extends JFrame{
             layoutConst.gridy = i + offset;
             content.add(actualItem, layoutConst);
             
-            actualQuantity = new JLabel(Integer.toString((int)values.get(i)));
+            actualQuantity = new JLabel(Integer.toString(charInventory.getMap().get((String)keys.get(i))));
             layoutConst.gridx = 1;
             layoutConst.gridy = i + offset;
             content.add(actualQuantity, layoutConst);
