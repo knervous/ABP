@@ -38,9 +38,7 @@ public class Inventory extends JFrame{
     public Inventory(CharacterInventory inventory){
         content.setLayout(new GridBagLayout());
         layoutConst.insets = new Insets(10, 10, 10, 10);
-        
-
-
+       
         item = new JLabel("Item");
         layoutConst.gridx = 0;
         layoutConst.gridy = 1;
@@ -75,14 +73,14 @@ public class Inventory extends JFrame{
             layoutConst.gridy = i + offset;
             content.add(actualCost, layoutConst);
             
-
             i++;
         }
         
-        this.setContentPane(content);
-        this.pack();
-        this.setTitle("CHARACTER INVENTORY");
+        setContentPane(content);
+        pack();
+        setTitle("CHARACTER INVENTORY");
         setVisible(true);
+        setResizable(false);
     }
     
 }

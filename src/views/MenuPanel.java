@@ -91,12 +91,10 @@ public class MenuPanel extends JFrame{
             layoutConst.gridy = i + offset;
             content.add(quantSpin, layoutConst);
             
+            ((DefaultEditor) quantSpin.getEditor()).getTextField().setEditable(false);
             i++;
             allSpinners.add(quantSpin);
-            for(JSpinner spinner : allSpinners)
-            {
-                ((DefaultEditor) spinner.getEditor()).getTextField().setEditable(false);
-            }
+
         }
         grabItems = new JButton("Grab Items");
         layoutConst.gridx = 0;
@@ -107,6 +105,7 @@ public class MenuPanel extends JFrame{
         this.pack();
         this.setTitle(station.getStationName());
         setVisible(true);
+        setResizable(false);
     }
     
     
