@@ -36,4 +36,9 @@ public class CharacterInventory {
         }
     }
     
+    public void updateInventory()
+    {
+        
+    }
+    
 }

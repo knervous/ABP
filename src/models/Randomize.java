@@ -28,6 +28,13 @@ public class Randomize {
         coffeeObjects = new StoreObjects[]{ new StoreObjects("French Vanilla Coffee",2.50f, rand.nextInt(20)) , new StoreObjects("Regular Coffee",2.50f, rand.nextInt(20)) , new StoreObjects("Seasonal Coffee",2.50f, rand.nextInt(20)) };
         coolerObjects = new StoreObjects[]{ new StoreObjects("Caesar Salad",9.0f, rand.nextInt(20)) , new StoreObjects("Chef Salad",12.5f, rand.nextInt(20)) , new StoreObjects("Ham Wrap",8.5f, rand.nextInt(20)), new StoreObjects("Turkey Wrap",8.5f, rand.nextInt(20)) , new StoreObjects("Veggie Wrap",9.5f, rand.nextInt(20)) };
         bakeryObjects = new StoreObjects[]{ new StoreObjects("Bagel",3.5f, rand.nextInt(20)) , new StoreObjects("Croissant",5.0f, rand.nextInt(20)) , new StoreObjects("Donut",4.99f, rand.nextInt(20)) };
+    
+        
+        //Testing out possibility of using enums
+        StoreObjects.ObjectType test = new StoreObjects("Apple",2.5f, rand.nextInt(20)).TYPE.APPLE;
+        System.out.println("APPLE COST: "+test.getCost());
+
+    
     }
 
     /**
