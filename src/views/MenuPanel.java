@@ -34,7 +34,7 @@ public class MenuPanel extends JFrame{
     private JLabel actualQuantity;
     private JButton grabItems = new JButton();
     private JSpinner quantSpin;
-    private FoodStations infStation;
+    private FoodStations infStation = new FoodStations();
     private ArrayList<JSpinner> allSpinners = new ArrayList<JSpinner>();
     private int offset = 2;
     private GridBagConstraints layoutConst = new GridBagConstraints();
@@ -42,7 +42,7 @@ public class MenuPanel extends JFrame{
     
     
     public void populateFoodMenu(FoodStations station){
-        infStation = station;
+        this.infStation = station;
         content.removeAll();
         content.setLayout(new GridBagLayout());
         layoutConst.insets = new Insets(10, 10, 10, 10);

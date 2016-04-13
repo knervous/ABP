@@ -199,13 +199,13 @@ public class ABPController {
 
                 @Override
                 public void actionPerformed(ActionEvent ae) {
-                StoreObjects[] objectsTemp = menuPanel.getStoreObjects();
+                    StoreObjects[] objectsTemp = menuPanel.getStoreObjects();
                 
-                for(int i = 0 ; i < objectsTemp.length ; i++)
-                {
-                    charInventory.addItem(objectsTemp[i], menuPanel.getSpinnerValue(i));
-                }
-                }
+                    for(int i = 0 ; i < objectsTemp.length ; i++)
+                    {
+                        charInventory.addItem(objectsTemp[i], menuPanel.getSpinnerValue(i));
+                    }
+                    }
                 }));
                     
 
