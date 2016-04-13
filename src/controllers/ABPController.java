@@ -40,6 +40,7 @@ public class ABPController {
         testFrame.setFocusable(false);
         abp.setFocusable(true);
         randomize = new Randomize();
+        menuPanel = new MenuPanel();
         
         testFrame.add(abp);
 
@@ -158,7 +159,7 @@ public class ABPController {
                             break;
                         case 1:
 //                            System.out.println("coffee initiated");
-                            menuPanel = new MenuPanel(new CoffeeStation(randomize.getCoffeeObjects()));
+                            menuPanel.populateFoodMenu(new CoffeeStation(randomize.getCoffeeObjects()));
                             break;
                         case 2:
 //                            System.out.println("sign initiated");
@@ -168,19 +169,19 @@ public class ABPController {
                             break;
                         case 4:
 //                            System.out.println("bakery initiated");
-                            menuPanel = new MenuPanel(new BreadStation(randomize.getBakeryObjects()));
+                            menuPanel.populateFoodMenu(new BreadStation(randomize.getBakeryObjects()));
                             break;
                         case 5:
 //                            System.out.println("fruit initiated");
-                            menuPanel = new MenuPanel(new FruitStation(randomize.getFruitObjects()));
+                            menuPanel.populateFoodMenu(new FruitStation(randomize.getFruitObjects()));
                             break;
                         case 6:
 //                            System.out.println("soup initiated");
-                            menuPanel = new MenuPanel(new SoupStation(randomize.getSoupObjects()));
+                            menuPanel.populateFoodMenu(new SoupStation(randomize.getSoupObjects()));
                             break;
                         case 7:
 //                            System.out.println("cooler initiated");
-                            menuPanel = new MenuPanel(new CoolerStation(randomize.getCoolerObjects()));
+                            menuPanel.populateFoodMenu(new CoolerStation(randomize.getCoolerObjects()));
                             break;
                             
                     }
