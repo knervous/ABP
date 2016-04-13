@@ -29,6 +29,7 @@ public class ABPController {
     private Randomize randomize;
     private MenuPanel menuPanel;
     private Inventory inventory;
+    private CharacterInventory charInventory;
 
     public ABPController() throws Exception {
 
@@ -41,6 +42,7 @@ public class ABPController {
         abp.setFocusable(true);
         randomize = new Randomize();
         menuPanel = new MenuPanel();
+        charInventory = new CharacterInventory();
         
         testFrame.add(abp);
 
@@ -75,7 +77,11 @@ public class ABPController {
     }
 
     private void addKeyListener() {
+        
+        
+        
         abp.requestFocusInWindow();
+        
         abp.setKeyListener(new KeyListener() {
 
             @Override
@@ -89,7 +95,10 @@ public class ABPController {
                 if(inventory!=null) inventory.dispose();
                 int oldX = student.x;
                 int oldY = student.y;
-
+                
+                
+                
+                
                 if (ke.getKeyCode() == KeyEvent.VK_RIGHT || ke.getKeyCode() == KeyEvent.VK_D) {
                     if (charMovement.getFrame() < 5) {
                         charMovement.setAnimation(student.getAnimation()[0]);
@@ -139,11 +148,11 @@ public class ABPController {
                 
                 if(ke.getKeyCode() == KeyEvent.VK_I)
                 {
-                    inventory = new Inventory(new CharacterInventory());
+                    inventory = new Inventory(charInventory);
                 }
                 
                 if (ke.getKeyCode() == KeyEvent.VK_SPACE && charMovement.getIsInteracting()) {
-
+                
                     switch (charMovement.getStationNumber()) {
 
                         case 0:
@@ -186,6 +195,19 @@ public class ABPController {
                             
                     }
                     
+                    menuPanel.addItemsToInv((new ActionListener(){
+
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                StoreObjects[] objectsTemp = menuPanel.getStoreObjects();
+                
+                for(int i = 0 ; i < objectsTemp.length ; i++)
+                {
+                    charInventory.addItem(objectsTemp[i], menuPanel.getSpinnerValue(i));
+                }
+                }
+                }));
+                    
 
                 }
                 
@@ -211,6 +233,7 @@ public class ABPController {
 
             }
         });
-
+        
+        
     }
 }
