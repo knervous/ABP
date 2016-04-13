@@ -10,12 +10,12 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
-import javax.swing.SpinnerNumberModel;
 
 /**
  *
@@ -35,7 +35,7 @@ public class Inventory extends JFrame{
     private GridBagConstraints layoutConst = new GridBagConstraints();
     private JPanel content = new JPanel();
     
-    public Inventory(CharacterInventory inventory){
+    public Inventory(CharacterInventory charInventory){
         content.setLayout(new GridBagLayout());
         layoutConst.insets = new Insets(10, 10, 10, 10);
        
@@ -55,23 +55,26 @@ public class Inventory extends JFrame{
         content.add(cost, layoutConst);
         
         int i = 0;
+        List keys = new ArrayList(charInventory.getMap().keySet());
+        List values = new ArrayList(charInventory.getMap().values());
+        
                    
-        while (i < inventory.getInventoryObjects().size()){
+        while (i < charInventory.getMap().size()){
             
-            actualItem = new JLabel(inventory.getInventoryObjects().get(i).getName());
+            actualItem = new JLabel((String)keys.get(i));
             layoutConst.gridx = 0;
             layoutConst.gridy = i + offset;
             content.add(actualItem, layoutConst);
             
-            actualQuantity = new JLabel(Integer.toString(inventory.getInventoryObjects().get(i).getQuantity()));
+            actualQuantity = new JLabel(Integer.toString((int)values.get(i)));
             layoutConst.gridx = 1;
             layoutConst.gridy = i + offset;
             content.add(actualQuantity, layoutConst);
             
-            actualCost = new JLabel(String.format("$%.2f",inventory.getInventoryObjects().get(i).getCost()));
-            layoutConst.gridx = 2;
-            layoutConst.gridy = i + offset;
-            content.add(actualCost, layoutConst);
+//            actualCost = new JLabel(String.format("$%.2f",charInventory.getInventoryObjects().get(i).getCost()));
+//            layoutConst.gridx = 2;
+//            layoutConst.gridy = i + offset;
+//            content.add(actualCost, layoutConst);
             
             i++;
         }
