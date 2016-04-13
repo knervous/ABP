@@ -26,4 +26,12 @@ public class CharacterInventory {
         return inventoryObjects;
     }
     
+    public void addItem(StoreObjects item, int quantity)
+    {
+        for(int i = 0; i<quantity; i++)
+        {
+            inventoryObjects.add(item);
+        }
+    }
+    
 }
