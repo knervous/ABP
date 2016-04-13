@@ -114,9 +114,9 @@ public class MenuPanel extends JFrame{
        grabItems.addActionListener(al);
     }
     
-    public int getSpinnerValue(int i)
+    public double getSpinnerValue(int i)
     {
-        return (int) allSpinners.get(i).getValue();
+        return (double) allSpinners.get(i).getValue();
     }
     
     public StoreObjects[] getStoreObjects()
